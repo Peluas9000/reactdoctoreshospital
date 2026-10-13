@@ -38,9 +38,8 @@ export default class DoctoresComponent extends Component {
         <table className='table table-bordered'>
             <thead>
                 <tr>
+                    <th>ID_DOCTOR</th>
                     <th>Apellidos</th>
-                    <th>Especialidad</th>
-                    <th>Salario</th>
                     <th>Hospital</th>
                     <th>Detalles</th>
                 </tr>
@@ -48,18 +47,29 @@ export default class DoctoresComponent extends Component {
             <tbody>
                 {this.state.doctores.map((doctor,index) => (
                     <tr key={index}>
+                        <td>{doctor.idDoctor}</td>
                         <td>{doctor.apellido}</td>
-                        <td>{doctor.especialidad}</td>
-                        <td>{doctor.salario}</td>
                         <td>{doctor.idHospital}</td>
+                         <td>
+                            <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={() => this.setState({
+                                    idDoctorSeleccionado: doctor.idDoctor
+                                })}
+                            >
+                                Ver detalles
+                            </button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
         </table>
+        
+
         {this.state.idDoctorSeleccionado && (
             <DetallesDoctor iddoctor={this.state.idDoctorSeleccionado} />
-        )}
-         
+        )} 
       </div>
     )
   }
