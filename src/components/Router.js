@@ -5,7 +5,8 @@ import HomeComponent from './HomeComponent'
 import { Routes } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import DoctoresComponent from './DoctoresComponent'
-
+import CreateHospital from './CreateHospital'
+import HospitalesComponent from './HospitalesComponent'
 export default class Router extends Component {
    
   render() {
@@ -19,6 +20,8 @@ export default class Router extends Component {
         <Routes>
             <Route path="/" element={<HomeComponent />} />
             <Route path="/doctores/:idhospital" element={<DoctoresElement />} />
+            <Route path="/createhospital" element={<CreateHospital />} />
+            <Route path="/hospitales" element={<HospitalesComponent />} />
         </Routes>
         </BrowserRouter>
     )

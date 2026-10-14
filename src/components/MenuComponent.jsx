@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import Global from '../Global'
+import CreateHospital from './CreateHospital'
 
 export default class MenuComponent extends Component {
     url = Global.urlApiHospitales;
@@ -26,9 +27,11 @@ export default class MenuComponent extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                
             <div className="container-fluid">
                
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -40,24 +43,32 @@ export default class MenuComponent extends Component {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/doctores/22">Doctores</NavLink>
                     </li>
-                    <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hospitales
-                    </a>
-                    <ul className="dropdown-menu">
-                        {
-                            this.state.hospitales.map((hospital) => {
-                                return (<li key={hospital.idHospital}>
-                                    <NavLink className="dropdown-item"
-                                    to={"/doctores/" + hospital.idHospital}>
-                                        {hospital.nombre}
-                                    </NavLink>
-                                </li>)
-                            })
-                        }
-                    </ul>
-                    </li>
                     <li className="nav-item">
+                        <NavLink className="nav-link" to="/hospitales">Hospitales</NavLink>
+                    </li>
+                    <li className="nav-item dropdown">
+                         <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hospitales
+                            </a>
+                 
+                        <ul className="dropdown-menu">
+                            {
+                                this.state.hospitales.map((hospital) => {
+                                    return (<li key={hospital.idHospital}>
+                                        <NavLink className="dropdown-item"
+                                        to={"/doctores/" + hospital.idHospital}>
+                                            {hospital.nombre}
+                                        </NavLink>
+                                    </li>)
+                                })
+                            }
+                        </ul>
+                    </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/createhospital">New Hospital</NavLink>
+                        </li>
+                    <li className="nav-item">
+                        
                     <a className="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
