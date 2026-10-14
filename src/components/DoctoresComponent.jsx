@@ -25,6 +25,9 @@ export default class DoctoresComponent extends Component {
     componentDidUpdate = (prevProps) => {
         if (this.props.idhospital !== prevProps.idhospital) {
             this.loadDoctores();
+            this.setState({
+                idDoctorSeleccionado: null
+            })
         }
     }
 
