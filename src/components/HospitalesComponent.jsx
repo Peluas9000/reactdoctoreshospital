@@ -8,16 +8,15 @@ export default class HospitalesComponent extends Component {
 
     }
     
-    loadHospitales=()=>{
-            this.serv.getHospitales.then((response)=>{
-                this.setState({
-                    hospitales:response
-                })
-            });
-            
-        
-    }
 
+    loadHospitales=()=>{
+        this.serv.getHospitales().then(result=>{
+            this.setState({
+                hospitales: result
+            });
+        });
+
+    }
     componentDidMount=()=>{
         this.loadHospitales();
     }
