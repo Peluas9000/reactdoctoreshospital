@@ -40,6 +40,9 @@ export default class MenuComponent extends Component {
                         <NavLink className="nav-link active" aria-current="page" 
                         to="/">Home</NavLink>
                     </li>
+                     <li className="nav-item">
+                            <NavLink className="nav-link" to="/ejemplos">Ejemplos Service</NavLink>
+                        </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/doctores/22">Doctores</NavLink>
                     </li>
